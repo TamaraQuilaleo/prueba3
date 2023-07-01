@@ -1,0 +1,86 @@
+#Creacion de menú con 4 opciones
+def Menu():
+    Op= input('Ingresa una opcion: \n \
+        1.Grabar. \n \
+        2.Buscar. \n \
+        3.Imprimir Certificados. \n \
+        4.Salir. \n ')
+    
+    if Op == '1' or Op == '2' or Op =='3' or Op =='4':
+        if Op == '1':
+            Grabar()
+        if Op == '2':
+            Buscar()
+        if Op =='3':
+            Imprimir()
+        if Op == '4':
+            Salir()
+        
+    else:
+        print('Ingrese una opcion válida porfavor')
+        return Menu()
+
+#Creando la opcion grabar
+Datos= {}
+def Grabar():
+    patente =input('Codigo de patente: ')
+    Datos['PATENTE'] = patente
+   
+    tipo = input('Tipo de auto: ')
+    Datos['TIPO'] = tipo
+    
+    marca = input('Ingrese la marca: ')
+    Datos['MARCA'] = marca
+    
+    precio = int(input('Ingresar el precio del vehiculo: '))
+
+    Datos['PRECIO'] = precio
+
+    tiene_multas = input('Tiene multas? (si, no)')
+    if tiene_multas == 'si':
+        multas = input('Ingrese la cantidad: ')
+        Datos['MULTAS'] = multas
+        fecha_multa = input('Ingresa la fecha: ')
+        Datos['FECHA_MULTA'] = fecha_multa
+    else:
+        print('El auto no tiene multa')
+        Datos['MULTAS'] = 'No tiene multa'
+
+    fecha_registo= input('Ingresa la fecha de registro: ')
+    Datos['FECHA_REGISTRO']= fecha_registo
+
+    nombre_dueño= input('Ingresa el nombre del dueño: ')
+    Datos['NOMBRE_DUEÑO'] =nombre_dueño
+
+#Creacion Opcion buscar
+def Buscar():
+    busqueda= input('Buscardor \n \
+        Ingresa el codigo de patente: ')
+
+    if busqueda == Datos['PATENTE']:
+        print(Datos)
+
+#Creacion de opciona imprimir
+def Imprimir():
+    imprimir_cert= input('ingrese la patente: ')
+    if imprimir_cert == Datos['PATENTE']:
+        print('Certificdo emision de contaminantes')
+        print('Patente: ', Datos['PATENTE'])
+        print('Nombre dueño: ', Datos['NOMBRE_DUEÑO'] )
+
+        print('------------------------------------')
+        print('Certificado anotaciones vigentes: ')
+        print('Anotaciones: Esto es una anotacion')
+        print('Patente: ', Datos['PATENTE'])
+        print('Nombre dueño: ', Datos['NOMBRE_DUEÑO'] )
+        print('--------------------------------------')
+
+        print('Certificado Multas')
+        print('Patente: ', Datos['PATENTE'])
+        print('Nombre dueño: ', Datos['NOMBRE_DUEÑO'] )
+        print('Multa: ', Datos['MULTAS'])
+
+#Opcion salir
+def Salir():
+    print('Tamara Quilaleo   version2.0')
+
